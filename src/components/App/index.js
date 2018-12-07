@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+
+import GlobalStyle from '../../styled/global.styles'
+import { AppWrapper }  from './styles'
+
+import MainHeader from '../Header/MainHeader';
+
+
+
 class App extends Component {
   state = {
     msg: "temp msg"
@@ -13,13 +21,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-          <p>
+      <React.Fragment>
+        <AppWrapper>
+          <MainHeader />
+          {/* <p>
           {this.state.msg}
-          </p>
-      </div>
+          </p> */}
+        </AppWrapper>
+        <GlobalStyle />
+      </React.Fragment>
     );
   }
 }
+
+
 
 export default App;
