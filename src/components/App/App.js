@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import GlobalStyle from '../../styled/global.styles'
 import { AppWrapper }  from './styles'
 
-import MainHeader from '../Header/MainHeader';
+import MainHeader from '../Header/MainHeader/MainHeader';
 
 
 
@@ -30,7 +30,7 @@ class App extends Component {
         </AppWrapper>
         <GlobalStyle />
       </React.Fragment>
-    );
+    )
   }
 }
 
