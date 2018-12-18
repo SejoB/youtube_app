@@ -1,57 +1,100 @@
 import React, { Component } from 'react'
 import onClickOutside from "react-onclickoutside"
 
+import PopUpSearchBar from '../SearchBar/PopUpSearchBar'
 
+import { IcnButton } from '../../../styled/styled.components'
+import { HWrapper, RHWrapper, AvButton, IcnSButton } from './MainHeader.styles'
+import { AddVideoIcon, SearchIcon, AddUserIcon} from '../../../styled/icons'
+import SearchForm from '../SearchForm/SearchForm'
+import LeftHeader from '../LeftHeader/LeftHeader'
 
-import SearchBar from '../SearchBar/SearchBar'
-import { HWrapper, IcnButton } from '../../../styled/styled.components'
-import { LHWrapper, Logo, AvButton } from './styles'
-import logo from '../../../images/yt_logo_rgb_dark.png'
-import { AddVideoIcon, MenuIcon, SearchIcon, AddUserIcon} from '../../../styled/icons'
 
 class MainHeader extends Component {
    
-    state = {
-      showSearchBar: false
-    }
+      
+   
+   
+   state = {
+   showSBar: false,
+   showSForm: false
+   }
 
-   showSearchBar = () => {
-      console.log('click')
-      this.setState({ showSearchBar: true })
+
+   hidePopUpSBHandler = (e) => {
+      this.setState({showSBar: false})
+      console.log('hideBar', e.target)
+   }  
+   showPopUpSBHandler = (e) => {
+      this.setState({ showSBar: true})
+      console.log('showBaropen', e.target)
    }
-   handleClickOutside = (e) => {
-      this.setState({ showSearchBar: false })
-      console.log(e.target)
+   // handleClickOutside = (e) => {
+   //    this.setState({ showSBar: false })
+   //    console.log(e.target)
+   // }
+   renderPopUpSB=()=>{
+      let showSBar = this.state.showSBar === true
+      if (showSBar === true ) {
+         return <PopUpSearchBar  showPopUpSBHandler={this.showPopUpSBHandler} 
+                                 hidePopUpSBHandler={this.hidePopUpSBHandler}/>
+      }else {
+         return null
+      }
    }
+
+
+   // showSFHandler = (mq) => {
+   // //   mq = window.matchMedia('(min-width: 460px)')
+   //    if(mq.matches){
+   //       this.setState({ showSForm: true })
+   //       console.log( 'SFormOpen')
+   //    }else {this.setState({showSForm: false})
+   //       console.log( 'SFormClosed')}
+   //    // mq.addListener(this.showSFHandler)
+
+   // }
+   // renderSearchForm = () => {
+   //    let showSForm = this.state.showSForm
+   //    if (showSForm === true) {
+   //        return <SearchForm showSFHandler={this.showSFHandler}/>
+   //       }else {
+   //        return null
+   //       }
+   //    }
+   
+      
    
 
+   
+      
+   
+   
+   
    render(){
+      
       return(
          <HWrapper>
-            <IcnButton margin ='0 4px 0 0'>
-               <MenuIcon />
-            </IcnButton>
-            <Logo src={logo} alt= 'logo'/>
+            <LeftHeader/>
             <React.Fragment>
-               { this.state.showSearchBar ? <SearchBar /> : null }
+               {this.renderPopUpSB()}                        
             </React.Fragment>
-            <LHWrapper>
-               <IcnButton onClick={()=>this.showSearchBar()}>
+            <SearchForm/>
+            <RHWrapper>
+               <IcnSButton onClick={this.showPopUpSBHandler}>
                   <SearchIcon/>
-               </IcnButton>
+               </IcnSButton>
                <IcnButton>
                   <AddVideoIcon/>
                </IcnButton>
                <AvButton>
                   <AddUserIcon />
                </AvButton>
-            </LHWrapper>
+            </RHWrapper>
          </HWrapper>
       )
    }
 }
-
-
 
 
 export default  onClickOutside(MainHeader)

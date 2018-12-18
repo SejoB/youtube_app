@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
-import { HWrapper } from '../../../styled/styled.components'
-
-
-
+import { HWrapper } from '../../Header/MainHeader/MainHeader.styles'
 
 export const Container = styled(HWrapper)`
       top:0px;
@@ -11,5 +8,6 @@ export const Container = styled(HWrapper)`
       position: absolute;
       /* z-index: 30px; */
       /* display: none; */
+      /* display: ${props=>props.showSBar ? 'display:flex' : 'none'} */
 `
 

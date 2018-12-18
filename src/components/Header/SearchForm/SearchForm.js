@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import onClickOutside from "react-onclickoutside"
 
-import { IWrapper, SearchBtn, SearchIcn, SForm } from './styles'
+import { IWrapper, SearchBtn, SearchIcn, SForm } from './SearchForm.styles'
 import { Input } from '../../../styled/styled.components'
 
 class SearchForm extends Component {
@@ -9,9 +9,7 @@ class SearchForm extends Component {
    state = { stateColor: false }
 
 
-
-
-   changeBorderColor = () => {
+   hasFocusHandler = () => {
       this.setState({stateColor: true})
    }
    handleClickOutside = () => {
@@ -21,9 +19,11 @@ class SearchForm extends Component {
    
    render() {
       return(
-            <SForm onSubmit={(e)=>e.preventDefault()}>
-               <IWrapper stateColor={this.state.stateColor}  onClick={()=>this.changeBorderColor()}>
-                  <Input id='searchInput' type='text' placeholder='Search' />
+            <SForm  onSubmit={(e)=>e.preventDefault()}>
+               <IWrapper   stateColor={this.state.stateColor} onFocus={this.hasFocusHandler}>
+                  <Input  id='searchInput' 
+                          type='text' 
+                          placeholder='Search'/>
                </IWrapper>
                <SearchBtn type='submit'>
                   <SearchIcn />

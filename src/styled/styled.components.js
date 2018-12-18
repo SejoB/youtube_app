@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { flexbox } from '../styled/functions'
-import { headerColor } from '../styled/constants'
 
 
 export const Button = styled.button.attrs({
@@ -9,26 +8,19 @@ export const Button = styled.button.attrs({
 })`
       margin: ${props => props.margin};
       padding: ${props => props.padding};
+      :hover{
+            opacity: 0.6
+      }  
 `
 export const IcnButton = styled(Button)`
-      width: 40px;
-      height: 40px;
-      padding: 8px;
-`
-
-export const HWrapper = styled.div`
-      ${ flexbox({j:'flex-start' }) }
-      position: fixed;
-      width: 100%;
-      background-color: ${headerColor};
-      height: 56px;
-      z-index: 20;
-      padding: 0 8px 0 8px;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.5rem;
 `
 export const Input = styled.input`
       font-weight: 400;
-      line-height: 24px;
-      margin-left: 4px;
+      line-height: 1.5rem;
+      margin-left: 0.25rem;
       max-width: 100%;
       outline: none;
       text-align: inherit;

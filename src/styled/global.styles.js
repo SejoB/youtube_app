@@ -1,9 +1,10 @@
-   import 'styled-components'
-   import { createGlobalStyle } from 'styled-components'
+import 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-   
 
-   const GlobalStyle = createGlobalStyle`
+
+const GlobalStyle = createGlobalStyle`
+
    html, body, #root {
       padding: 0px;
       margin: 0px;
@@ -46,7 +47,7 @@
       outline: none;
       border: none; 
    }
-   
+
    button {
    cursor: pointer; 
    }
